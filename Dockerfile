@@ -7,11 +7,6 @@ FROM ubuntu:18.04
 #
 
 RUN apt-get update -yqq && \
-    apt-get upgrade && \
-    apt-get install -y apt-utils && \
-    rm -rf /var/lib/apt/lists/* && apt-get purge -y --auto-remove
-
-RUN apt-get update -yqq && \
     apt-get install -y \
     mysql-client \
     vim \
