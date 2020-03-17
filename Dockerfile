@@ -142,11 +142,13 @@ RUN curl -s http://getcomposer.org/installer | php && \
 #
 
 RUN echo 'root:root' | chpasswd && \
+    echo 'www-data:www-data' | chpasswd && \
     sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-    sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
+    echo "AllowUsers www-data root" >> /etc/ssh/sshd_config
 
 RUN usermod -u 1000 www-data
 WORKDIR /var/www
 
-EXPOSE 22
+EXPOSE 22 80 443
 ENTRYPOINT service ssh restart && bash
