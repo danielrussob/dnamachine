@@ -142,7 +142,7 @@ RUN echo 'root:root' | chpasswd && \
     sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
     echo "AllowUsers www-data root" >> /etc/ssh/sshd_config
 
-RUN usermod -u 1000 www-data
+RUN usermod -u 1000 www-data -s /bin/bash
 WORKDIR /var/www
 
 EXPOSE 22 80 443
