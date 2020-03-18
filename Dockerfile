@@ -132,6 +132,16 @@ RUN curl -s http://getcomposer.org/installer | php && \
 
 #
 #--------------------------------------------------------------------------
+# Attach some template
+#--------------------------------------------------------------------------
+#
+
+ADD nginx/laravel.conf /etc/nginx/sites-enabled/laravel.conf.tpl
+ADD nginx/magento1.conf /etc/nginx/sites-enabled/magento1.conf.tpl
+ADD nginx/magento2.conf /etc/nginx/sites-enabled/magento2.conf.tpl
+
+#
+#--------------------------------------------------------------------------
 # Spreading ass
 #--------------------------------------------------------------------------
 #
