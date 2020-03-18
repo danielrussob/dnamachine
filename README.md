@@ -48,6 +48,22 @@ To use external nginx container, you must switch php-fpm from socket to tcp
 For database, use instead: dnafactory/mariadb (remember to attach external connection)
 For phpmyadmin, use instead: dnafactory/phpmyadmin
 
+You can found some templates at: /etc/nginx/sites-template
+
+# Usage docker-compose
+
+Inside z-doc/docker-compose
+
+To start all service
+`docker-compose up -d`
+
+`docker-compose -f docker-compose-sync.yml up -d`
+
+
+To start specific service
+`docker-compose up -d machine db phpmyadmin elasticsearch elasticsearch2 redis rabbit`
+
+
 # Host
 
 `*.local.dnalab.online ----> 127.0.0.1`
