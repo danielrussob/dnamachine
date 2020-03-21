@@ -130,6 +130,10 @@ RUN curl -s http://getcomposer.org/installer | php && \
     echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
     mv composer.phar /usr/local/bin/composer
 
+RUN apt-get update -yqq && \
+    apt-get install -y nodejs npm && \
+    rm -rf /var/lib/apt/lists/* && apt-get purge -y --auto-remove
+
 #
 #--------------------------------------------------------------------------
 # Attach some template
